@@ -837,6 +837,28 @@ h3 {
   font-size: 25px;
 }
 
+.operator-list {
+  margin: 0 0 42px;
+  border-top: 1px solid var(--line);
+}
+
+.operator-list div {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  gap: 20px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.operator-list dt {
+  font-weight: 700;
+}
+
+.operator-list dd {
+  margin: 0;
+  color: var(--text);
+}
+
 @media (max-width: 900px) {
   .container,
   .header-inner,
@@ -998,6 +1020,11 @@ h3 {
 
   .gateway-grid {
     grid-template-columns: 1fr;
+  }
+
+  .operator-list div {
+    grid-template-columns: 1fr;
+    gap: 4px;
   }
 
   .footer-inner {
