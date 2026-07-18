@@ -1,0 +1,21 @@
+# サバイブ
+
+飯能市を中心に日高市・入間市周辺で、離れて暮らす家族と高齢者の生活を支える地域サービスです。
+
+## サービス
+
+- 親と実家のスポット訪問: https://survive-support-jp.github.io/oyasupport/
+- AIを生活に: https://survive-support-jp.github.io/ai-living/
+
+## 運営者・連絡先
+
+- 運営者: 茂木理玖
+- 対応地域: 飯能市、日高市、入間市周辺
+- 相談対応時間: 9:00-17:00
+- 連絡先: speakup.co.jp@gmail.com
+- 運営者情報: https://survive-support-jp.github.io/operator.html
+
+## 実用ガイド
+
+- 高齢者のAI・スマホ設定を頼む前に、家族が確認したい5つのこと: https://survive-support-jp.github.io/guides/ai-smartphone-preparation.html
+- 怪しいSMSや電話が来た時の、家族のための確認チェックリスト: https://survive-support-jp.github.io/guides/suspicious-sms-phone-checklist.html

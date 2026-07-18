@@ -859,6 +859,82 @@ h3 {
   color: var(--text);
 }
 
+.guide-page {
+  padding: 72px 0;
+  background: var(--white);
+}
+
+.guide-copy {
+  max-width: 820px;
+}
+
+.guide-copy .brand {
+  margin-bottom: 64px;
+}
+
+.guide-copy h1 {
+  margin-bottom: 18px;
+}
+
+.guide-copy h2 {
+  margin-top: 52px;
+  margin-bottom: 14px;
+  font-size: 27px;
+}
+
+.guide-copy > p:not(.kicker):not(.guide-meta) {
+  max-width: 720px;
+  color: var(--text);
+  font-size: 17px;
+}
+
+.guide-meta {
+  margin-bottom: 44px;
+  color: var(--text);
+  font-size: 14px;
+}
+
+.guide-index {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 36px 0 42px;
+}
+
+.guide-index a {
+  min-height: 230px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--white);
+  text-decoration: none;
+  transition: border-color 160ms ease, transform 160ms ease;
+}
+
+.guide-index a:hover {
+  border-color: var(--leaf);
+  transform: translateY(-2px);
+}
+
+.guide-index span {
+  display: block;
+  margin-bottom: 26px;
+  color: var(--leaf);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.guide-index strong {
+  display: block;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.guide-index p {
+  margin: 14px 0 0;
+  color: var(--text);
+}
+
 @media (max-width: 900px) {
   .container,
   .header-inner,
@@ -1025,6 +1101,22 @@ h3 {
   .operator-list div {
     grid-template-columns: 1fr;
     gap: 4px;
+  }
+
+  .guide-page {
+    padding: 42px 0;
+  }
+
+  .guide-copy .brand {
+    margin-bottom: 44px;
+  }
+
+  .guide-copy h2 {
+    font-size: 24px;
+  }
+
+  .guide-index {
+    grid-template-columns: 1fr;
   }
 
   .footer-inner {
