@@ -5,22 +5,12 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-document.querySelectorAll('[data-contact-form]').forEach((form) => {
-  form.addEventListener('submit', (event) => {
-    event.preventDefault();
-    if (form.elements.website.value) return;
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    const subject = form.dataset.subject || 'サバイブへの相談';
-    const labels = {
-      name: 'お名前', email: 'メールアドレス', phone: '電話番号', area: '親御さん・利用者の地域',
-      relation: '本人との関係', timing: '希望時期', details: '相談内容'
-    };
-    const body = Object.entries(labels).map(([name, label]) => `${label}: ${form.elements[name].value.trim()}`).join('\n');
-    const address = ['speakup.co.jp', 'gmail.com'].join('@');
-    window.location.href = `mailto:${address}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+// フォームはFormSubmitへ直接POSTする。JSは二重送信の防止だけを担当する。
+document.querySelectorAll('form.contact-form').forEach((form) => {
+  form.addEventListener('submit', () => {
+    const button = form.querySelector('button[type="submit"]');
+    if (!button) return;
+    button.disabled = true;
+    button.textContent = '送信中…';
   });
 });
