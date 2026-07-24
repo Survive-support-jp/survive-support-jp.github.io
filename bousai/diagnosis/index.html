@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="ご家庭の人数と今ある備えから、水・食料・トイレの目安を1〜2分で確認できるサバイブの備え診断です。">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#113d2b">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formsubmit.co; upgrade-insecure-requests">
+  <title>わが家の備え診断｜サバイブ 防災備蓄</title>
+  <link rel="canonical" href="https://survive-support-jp.github.io/bousai/diagnosis/">
+  <link rel="icon" href="../../assets/favicon.png"><link rel="stylesheet" href="../../styles.css">
+</head>
+<body class="diagnosis-page">
+  <header class="header"><div class="header-inner"><a class="brand" href="../" aria-label="サバイブ 防災備蓄 トップ"><span class="brand-mark"><img src="../../assets/favicon.png" alt=""></span><span>サバイブ 防災備蓄</span></a><nav class="nav" aria-label="メインナビゲーション"><a href="../">防災備蓄サポート</a><a class="button button-small" href="#diagnosis">備えを確認する</a></nav></div></header>
+  <main>
+    <section class="diagnosis-hero"><div class="container diagnosis-hero-inner"><p class="kicker">1〜2分・無料</p><h1>わが家の備え診断</h1><p>今ある備えを責めるための診断ではありません。水・食料・トイレを、家族に合う3日分の目安と比べて、次に整えることを一緒に見つけます。</p><div class="diagnosis-points"><span>今あるものを活かす</span><span>その場で契約しない</span><span>結果はこの画面だけ</span></div></div></section>
+
+    <section class="diagnosis-section" id="diagnosis"><div class="container diagnosis-container">
+      <div class="diagnosis-progress" aria-label="診断の進み具合"><span class="is-current">1. ご家族</span><span>2. 今ある備え</span><span>3. 結果</span></div>
+      <form id="diagnosis-form" class="diagnosis-card">
+        <section class="question-step is-active" data-step="1" aria-labelledby="step1-title">
+          <p class="kicker">質問 1 / 3</p><h2 id="step1-title">何人分の備えを考えますか？</h2><p class="question-help">普段この家で過ごす人数を選んでください。離れて暮らすご家族の家なら、その家の人数で大丈夫です。7人以上の場合は、まず6人を選んでご相談ください。</p>
+          <div class="number-choice" role="group" aria-label="世帯人数"><button type="button" data-people="1">1人</button><button type="button" data-people="2">2人</button><button type="button" data-people="3">3人</button><button type="button" data-people="4">4人</button><button type="button" data-people="5">5人</button><button type="button" data-people="6">6人</button></div>
+          <input type="hidden" id="people" value="">
+          <label class="check-option"><input id="support-needs" type="checkbox"> 小さなお子さま・高齢の方・持病など、個別に確認したいことがある</label>
+          <p class="diagnosis-error" aria-live="polite"></p><button class="button diagnosis-next" type="button">次へ進む</button>
+        </section>
+        <section class="question-step" data-step="2" aria-labelledby="step2-title" hidden>
+          <p class="kicker">質問 2 / 3</p><h2 id="step2-title">今ある備えを教えてください</h2><p class="question-help">正確な数が分からなくても大丈夫です。だいたいの感覚で選んでください。</p>
+          <div class="stock-questions">
+            <fieldset><legend>飲み水は、何日分くらいありますか？</legend><label><input type="radio" name="water" value="0" checked> ほとんどない・分からない</label><label><input type="radio" name="water" value="1"> 1日分くらい</label><label><input type="radio" name="water" value="2"> 2日分くらい</label><label><input type="radio" name="water" value="3"> 3日分以上ある</label></fieldset>
+            <fieldset><legend>すぐ食べられる食料は、何日分くらいありますか？</legend><label><input type="radio" name="food" value="0" checked> ほとんどない・分からない</label><label><input type="radio" name="food" value="1"> 1日分くらい</label><label><input type="radio" name="food" value="2"> 2日分くらい</label><label><input type="radio" name="food" value="3"> 3日分以上ある</label></fieldset>
+            <fieldset><legend>断水時に使える非常用トイレはありますか？</legend><label><input type="radio" name="toilet" value="0" checked> ない・分からない</label><label><input type="radio" name="toilet" value="1"> 少しある（1日分くらい）</label><label><input type="radio" name="toilet" value="2"> 2日分くらい</label><label><input type="radio" name="toilet" value="3"> 3日分以上ある</label></fieldset>
+            <fieldset><legend>備蓄の置き場所と期限は決まっていますか？</legend><label><input type="radio" name="management" value="ready"> 置き場所も期限も確認できている</label><label><input type="radio" name="management" value="partial" checked> あるが、場所か期限があいまい</label><label><input type="radio" name="management" value="none"> まだ決まっていない</label></fieldset>
+          </div>
+          <div class="diagnosis-buttons"><button class="button button-secondary diagnosis-back" type="button">戻る</button><button class="button diagnosis-next" type="button">結果を見る</button></div>
+        </section>
+        <section class="question-step" data-step="3" aria-labelledby="result-title" hidden>
+          <p class="kicker">診断結果</p><h2 id="result-title">この家の「最初の3日分」の目安です</h2><p class="result-lead" id="result-lead"></p>
+          <div class="reassurance-score"><div><span>いまの安心度</span><strong id="score">0</strong><small> / 100</small></div><p id="score-copy"></p></div>
+          <div class="gap-grid" id="gap-grid"></div>
+          <div class="result-note" id="management-note"></div>
+          <div class="survive-plan"><p class="kicker">サバイブなら</p><h3>足りないところから、家に合う形で整えます</h3><p id="plan-copy"></p><ul id="plan-list"></ul><p class="form-help">ここに出る金額は、3日間の基本セットをすべて整える場合の目安です。今ある備えは差し引き、追加品は正式見積でご案内します。</p></div>
+          <div class="result-actions"><a class="button" href="#contact">この結果で相談する</a><button class="button button-secondary" id="restart" type="button">もう一度診断する</button></div>
+        </section>
+      </form>
+    </div></section>
+
+    <section class="diagnosis-contact" id="contact"><div class="container diagnosis-contact-inner"><div><p class="kicker">結果を残して相談する場合だけ</p><h2>ご家族に合う備えを、<br>一緒に確認します。</h2><p>名前や連絡先の入力は任意です。送信いただいた場合だけ、診断結果を添えてご相談にお返事します。無理な営業や、その場での契約はありません。</p></div><form id="diagnosis-contact-form" class="contact-form" action="https://formsubmit.co/speakup.co.jp@gmail.com" method="POST"><input type="hidden" name="_subject" value="備え診断からの相談"><input type="hidden" name="_next" value="https://survive-support-jp.github.io/thanks.html"><input type="hidden" name="_template" value="table"><input type="hidden" name="_captcha" value="false"><input type="hidden" name="診断結果" id="diagnosis-summary"><label>お名前（任意）<input name="name" autocomplete="name" maxlength="80"></label><div class="field-row"><label>メールアドレス（任意）<input name="email" type="email" autocomplete="email" maxlength="254"></label><label>電話番号（任意）<input name="phone" type="tel" autocomplete="tel" maxlength="32"></label></div><label>相談したいこと（任意）<textarea name="details" maxlength="1000" placeholder="例：水の置き場所を見てほしい／親の家にも備えたい"></textarea></label><label class="check-option consent"><input id="privacy-consent" type="checkbox" required> <a href="../../privacy.html" target="_blank" rel="noopener">プライバシーポリシー</a>を確認し、相談への返信に必要な範囲での利用に同意します。</label><label class="honeypot" aria-hidden="true">Webサイト<input name="_honey" tabindex="-1" autocomplete="off"></label><button class="button form-button" type="submit">この結果で相談する</button><p class="form-help">入力内容はFormSubmitを経由して運営者のメールに届きます。このサイトには保存されません。</p></form></div></section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><div><strong>サバイブ 防災備蓄サポート</strong><p>飯能市を中心に、日高市・入間市周辺</p><p><a href="../../operator.html">運営者情報</a> ｜ <a href="../../privacy.html">プライバシーポリシー</a></p></div><a class="button button-secondary" href="../">防災備蓄サポートへ</a></div></footer>
+  <script src="diagnosis.js"></script>
+</body>
+</html>
