@@ -12,6 +12,10 @@
     .map(key => `${key}=${campaign.get(key)}`)
     .join(' / ') || '直接アクセス・未設定';
   document.querySelector('#traffic-source').value = campaignSummary;
+  const appointmentForm = document.querySelector('#diagnosis-contact-form');
+  if (appointmentForm) {
+    appointmentForm.querySelector('input[name="_next"]').value = 'https://survive-support-jp.github.io/thanks.html?service=free_check';
+  }
 
   const get = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value;
   const amount = (value, unit) => `${value.toLocaleString('ja-JP')}${unit}`;
