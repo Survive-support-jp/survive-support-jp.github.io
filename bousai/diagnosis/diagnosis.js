@@ -5,6 +5,14 @@
   const progress = [...document.querySelectorAll('.diagnosis-progress span')];
   let current = 1;
 
+  const campaign = new URLSearchParams(window.location.search);
+  const campaignKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+  const campaignSummary = campaignKeys
+    .filter(key => campaign.get(key))
+    .map(key => `${key}=${campaign.get(key)}`)
+    .join(' / ') || '直接アクセス・未設定';
+  document.querySelector('#traffic-source').value = campaignSummary;
+
   const get = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value;
   const amount = (value, unit) => `${value.toLocaleString('ja-JP')}${unit}`;
   function showStep(number) { current = number; steps.forEach(step => { const active = Number(step.dataset.step) === number; step.hidden = !active; step.classList.toggle('is-active', active); }); progress.forEach((item, index) => item.classList.toggle('is-current', index < number)); if (number === 3) buildResult(); window.scrollTo({ top: document.querySelector('#diagnosis').offsetTop - 84, behavior: 'smooth' }); }
