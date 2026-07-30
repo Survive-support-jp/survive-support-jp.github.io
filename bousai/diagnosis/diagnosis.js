@@ -22,6 +22,10 @@
       submitButton.disabled = true;
       submitButton.textContent = '送信しています…';
       help.textContent = '送信中です。画面を閉じずにお待ちください。';
+      if (window.SURVIVE_RECEPTION_ENDPOINT) {
+        submitToReception_(appointmentForm, submitButton, help);
+        return;
+      }
       try {
         const response = await fetch('https://formsubmit.co/ajax/speakup.co.jp%40gmail.com', {
           method: 'POST',
@@ -37,6 +41,20 @@
         help.textContent = '送信できませんでした。通信を確認して、もう一度お試しください。';
       }
     });
+  }
+
+  function submitToReception_(formElement, submitButton, help) {
+    const receiver = document.createElement('iframe');
+    receiver.name = 'survive-lead-receiver';
+    receiver.hidden = true;
+    receiver.src = 'about:blank';
+    receiver.addEventListener('load', () => {
+      receiver.addEventListener('load', () => { location.href = '/thanks.html?service=free_check'; }, { once: true });
+      formElement.action = window.SURVIVE_RECEPTION_ENDPOINT;
+      formElement.target = receiver.name;
+      formElement.submit();
+    }, { once: true });
+    document.body.appendChild(receiver);
   }
 
   const get = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value;
