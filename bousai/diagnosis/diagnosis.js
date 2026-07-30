@@ -15,6 +15,28 @@
   const appointmentForm = document.querySelector('#diagnosis-contact-form');
   if (appointmentForm) {
     appointmentForm.querySelector('input[name="_next"]').value = 'https://survive-support-jp.github.io/thanks.html?service=free_check';
+    appointmentForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const submitButton = appointmentForm.querySelector('button[type="submit"]');
+      const help = appointmentForm.querySelector('.form-help');
+      submitButton.disabled = true;
+      submitButton.textContent = '送信しています…';
+      help.textContent = '送信中です。画面を閉じずにお待ちください。';
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/speakup.co.jp%40gmail.com', {
+          method: 'POST',
+          body: new FormData(appointmentForm),
+          headers: { Accept: 'application/json' }
+        });
+        if (!response.ok) throw new Error('Form submission failed');
+        if (typeof gtag === 'function') gtag('event', 'generate_lead', { service: 'bousai_free_check' });
+        location.href = '/thanks.html?service=free_check';
+      } catch (error) {
+        submitButton.disabled = false;
+        submitButton.textContent = '無料チェックを申し込む';
+        help.textContent = '送信できませんでした。通信を確認して、もう一度お試しください。';
+      }
+    });
   }
 
   const get = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value;
