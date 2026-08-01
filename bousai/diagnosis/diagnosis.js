@@ -82,7 +82,7 @@
     document.querySelector('#management-note').innerHTML = `<strong>置き場所・期限について</strong><p>${managementMessages[management]}</p>`;
     const price = people === 1 ? 35000 : 8000 + people * 27000;
     const items = []; if (gaps.water) items.push(`備蓄水を、あと${gaps.water}L目安`); if (gaps.food) items.push(`すぐ食べられる食料を、あと${gaps.food}食分の目安`); if (gaps.toilet) items.push(`非常用トイレを、あと${gaps.toilet}回分の目安`); if (management !== 'ready') items.push('無理なく続けられる置き場所と期限管理'); if (document.querySelector('#support-needs').checked) items.push('ご家族の事情に合わせた食品・衛生用品の確認');
-    document.querySelector('#plan-copy').textContent = `${people}人分を最初から3日間の基本セットで整える場合は、${price.toLocaleString('ja-JP')}円（税込目安）からです。今ある備えは活かすため、実際には必要な分だけを確認して見積します。`;
+    document.querySelector('#plan-copy').textContent = `${people}人分を最初から3日間サバイブパックで整える場合は、${price.toLocaleString('ja-JP')}円（税込目安）からです。備蓄品一式・訪問設置・最長5年間の期限管理を含みます。今ある備えは活かすため、実際には必要な分だけを確認して見積します。`;
     document.querySelector('#plan-list').innerHTML = items.map(item => `<li>${item}</li>`).join('');
     document.querySelector('#diagnosis-summary').value = `${people}人／安心度${score}/100／水: 目安${needs.water}L・不足${gaps.water}L／食料: 目安${needs.food}食分・不足${gaps.food}食分／トイレ: 目安${needs.toilet}回分・不足${gaps.toilet}回分／管理: ${management === 'ready' ? '確認済み' : management === 'partial' ? '一部あいまい' : '未設定'}`;
   }
