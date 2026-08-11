@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 
 const source = fs.readFileSync('bousai/index.html', 'utf8');
+const mobileCss = fs.readFileSync('bousai/mobile.css', 'utf8');
 const diagnosisSource = fs.readFileSync('bousai/diagnosis/diagnosis.js', 'utf8');
 
 assert.match(source, /3日間パック/);
@@ -16,10 +17,9 @@ assert.match(source, /家に3日分の備えを、<br>置ける状態まで整�
 assert.match(source, /3day-pack-product-photo\.png/);
 assert.match(source, /無料で備えを確認する/);
 assert.match(source, /500mL × 18本/);
-assert.match(source, /hero-proof/);
-assert.match(source, /水 9L/);
-assert.match(source, /トイレ 15回分/);
-assert.match(source, /期限管理/);
+assert.match(source, /mobile-lifestyle-hero/);
+assert.match(mobileCss, /mobile-home-entryway\.png/);
+assert.match(source, /1人 29,000円から/);
 assert.match(source, /mobile-sticky-cta/);
 assert.doesNotMatch(source, /35,000円/);
 assert.doesNotMatch(source, /甘味 3本/);

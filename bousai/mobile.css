@@ -40,9 +40,104 @@
   display: none;
 }
 
+.mobile-lifestyle-hero {
+  display: none;
+}
+
 @media (max-width: 760px) {
   body {
     padding-bottom: 68px;
+  }
+
+  .site-header {
+    position: relative;
+    z-index: 2;
+    background: var(--paper);
+  }
+
+  .site-header .header-cta {
+    display: none;
+  }
+
+  .hero {
+    display: none;
+  }
+
+  .mobile-lifestyle-hero {
+    position: relative;
+    display: block;
+    min-height: calc(100svh - 62px);
+    overflow: hidden;
+    background: url("assets/mobile-home-entryway.png") center / cover no-repeat;
+  }
+
+  .mobile-lifestyle-hero::after {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.2) 100%);
+    content: "";
+    pointer-events: none;
+  }
+
+  .mobile-lifestyle-hero > * {
+    position: absolute;
+    z-index: 1;
+  }
+
+  .hero-label {
+    margin: 0;
+    padding: 7px 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-area {
+    top: 34px;
+    left: 16px;
+  }
+
+  .hero-kind {
+    top: 71px;
+    left: 16px;
+  }
+
+  .mobile-lifestyle-hero h1 {
+    top: 120px;
+    left: 16px;
+    margin: 0;
+    color: var(--ink);
+    font-size: clamp(36px, 11vw, 45px);
+    font-weight: 800;
+    letter-spacing: -0.07em;
+    line-height: 1.25;
+  }
+
+  .mobile-lifestyle-hero h1 span {
+    display: table;
+    padding: 2px 8px 5px;
+    background: rgba(255, 255, 255, 0.94);
+  }
+
+  .hero-price-label {
+    top: 332px;
+    left: 16px;
+    margin: 0;
+    padding: 8px 11px;
+    background: var(--coral);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .mobile-lifestyle-hero img {
+    right: -5%;
+    bottom: -2%;
+    width: 110%;
+    mix-blend-mode: multiply;
   }
 
   .hero h1 {
