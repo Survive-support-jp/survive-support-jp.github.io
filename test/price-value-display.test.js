@@ -21,6 +21,8 @@ assert.match(source, /mobile-lifestyle-hero/);
 assert.match(mobileCss, /mobile-home-entryway\.png/);
 assert.match(source, /mobile-product-intro/);
 assert.match(source, /1人 29,000円〜/);
+assert.match(source, /mobile-hero-brand/);
+assert.match(source, /mobile-hero-cta/);
 assert.match(source, /mobile-sticky-cta/);
 assert.doesNotMatch(source, /35,000円/);
 assert.doesNotMatch(source, /甘味 3本/);

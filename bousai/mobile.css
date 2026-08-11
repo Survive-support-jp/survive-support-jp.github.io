@@ -54,12 +54,6 @@
   }
 
   .site-header {
-    position: relative;
-    z-index: 2;
-    background: var(--paper);
-  }
-
-  .site-header .header-cta {
     display: none;
   }
 
@@ -70,14 +64,59 @@
   .mobile-lifestyle-hero {
     position: relative;
     display: block;
-    min-height: calc(100svh - 62px);
+    min-height: 100svh;
     overflow: hidden;
-    background: url("assets/mobile-home-entryway.png") center / cover no-repeat;
+    background: #f1eee7;
   }
 
-  .mobile-lifestyle-hero > * {
+  .mobile-hero-scene {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+  }
+
+  .mobile-hero-scene::before,
+  .mobile-hero-scene::after {
+    position: absolute;
+    background: url("assets/mobile-home-entryway.png") center / cover no-repeat;
+    content: "";
+  }
+
+  .mobile-hero-scene::before {
+    top: 0;
+    left: 35%;
+    width: 52%;
+    height: 100%;
+  }
+
+  .mobile-hero-scene::after {
+    right: -25%;
+    bottom: 0;
+    width: 74%;
+    height: 40%;
+    background-position: right bottom;
+  }
+
+  .mobile-lifestyle-hero > :not(.mobile-hero-scene) {
     position: absolute;
     z-index: 1;
+  }
+
+  .mobile-hero-brand {
+    top: 26px;
+    left: 24px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--ink);
+    font-size: 17px;
+    font-weight: 900;
+    text-decoration: none;
+  }
+
+  .mobile-hero-brand img {
+    width: 29px;
+    height: 29px;
   }
 
   .hero-label {
@@ -91,18 +130,18 @@
   }
 
   .hero-area {
-    top: 34px;
-    left: 16px;
+    top: 192px;
+    left: 34px;
   }
 
   .hero-kind {
-    top: 71px;
-    left: 16px;
+    top: 229px;
+    left: 34px;
   }
 
   .mobile-lifestyle-hero h1 {
-    top: 120px;
-    left: 16px;
+    top: 288px;
+    left: 34px;
     margin: 0;
     color: var(--ink);
     font-size: clamp(36px, 11vw, 45px);
@@ -115,6 +154,42 @@
     display: table;
     padding: 2px 8px 5px;
     background: #fff;
+  }
+
+  .mobile-hero-cta {
+    top: 500px;
+    right: -30px;
+    left: 32px;
+    display: grid;
+    grid-template-columns: 1fr 40px;
+    align-items: center;
+    min-height: 92px;
+    padding: 14px 38px;
+    border-radius: 50px 0 0 50px;
+    background: var(--coral);
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .mobile-hero-cta small,
+  .mobile-hero-cta strong {
+    display: block;
+  }
+
+  .mobile-hero-cta small {
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .mobile-hero-cta strong {
+    margin-top: 2px;
+    font-size: 18px;
+  }
+
+  .mobile-hero-cta b {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    font-size: 24px;
   }
 
   .mobile-product-intro {
@@ -201,21 +276,6 @@
   }
 
   .mobile-sticky-cta {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 10;
-    display: flex;
-    min-height: 64px;
-    align-items: center;
-    justify-content: center;
-    gap: 18px;
-    background: var(--coral);
-    box-shadow: 0 -5px 18px rgba(23, 60, 50, 0.16);
-    color: #fff;
-    font-size: 15px;
-    font-weight: 900;
-    text-decoration: none;
+    display: none;
   }
 }
