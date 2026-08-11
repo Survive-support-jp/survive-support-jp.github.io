@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Make the Survive disaster-pack LP convert cleanly from a 390px smartphone screen using a lifestyle hero, exact product photo, and a persistent consultation CTA.
+**Goal:** Make the Survive disaster-pack LP convert cleanly from a 390px smartphone screen using a lifestyle hero, a separate exact-product section, and a persistent consultation CTA.
 
-**Architecture:** Keep the static HTML page and existing desktop stylesheet. Add a lifestyle background image, compact hero labels, and a mobile-only sticky CTA; use the exact product photograph and `#contact` anchor. The regression test reads the final static source and asserts the durable customer-facing contract.
+**Architecture:** Keep the static HTML page and existing desktop stylesheet. Add a lifestyle background image, compact hero labels, a separate exact-product section, and a mobile-only sticky CTA; use the exact product photograph and `#contact` anchor. The regression test reads the final static source and asserts the durable customer-facing contract.
 
 **Tech Stack:** Static HTML, CSS media queries, Node.js `assert` tests.
 
@@ -51,13 +51,15 @@ Expected: assertion failure because the lifestyle hero and its background asset 
 <section class="mobile-lifestyle-hero">
   <p class="hero-label">飯能市・日高市・入間市周辺</p>
   <h1><span>家に置ける、</span><span>3日分の備え。</span></h1>
+</section>
+<section class="mobile-product-intro">
   <img src="assets/3day-pack-product-photo.png" alt="3日間パックの中身">
-  <p class="hero-price-label">1人 29,000円から</p>
+  <strong>1人 29,000円〜</strong>
 </section>
 <a class="mobile-sticky-cta" href="#contact">無料で備えを確認する <span aria-hidden="true">→</span></a>
 ```
 
-Use `mobile-home-entryway.png` as the mobile hero background. In `mobile.css`, show compact white labels and the exact product image over that background, then add a fixed bottom CTA at widths at most 760px and hide that CTA above 760px.
+Use `mobile-home-entryway.png` as the mobile hero background. In `mobile.css`, show compact opaque white labels over that background, put the exact product image in the next white section, then add a fixed bottom CTA at widths at most 760px and hide that CTA above 760px.
 
 - [ ] **Step 4: Run test to verify it passes**
 

@@ -44,6 +44,10 @@
   display: none;
 }
 
+.mobile-product-intro {
+  display: none;
+}
+
 @media (max-width: 760px) {
   body {
     padding-bottom: 68px;
@@ -69,15 +73,6 @@
     min-height: calc(100svh - 62px);
     overflow: hidden;
     background: url("assets/mobile-home-entryway.png") center / cover no-repeat;
-  }
-
-  .mobile-lifestyle-hero::after {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0) 42%, rgba(255, 255, 255, 0.2) 100%);
-    content: "";
-    pointer-events: none;
   }
 
   .mobile-lifestyle-hero > * {
@@ -119,25 +114,41 @@
   .mobile-lifestyle-hero h1 span {
     display: table;
     padding: 2px 8px 5px;
-    background: rgba(255, 255, 255, 0.94);
+    background: #fff;
   }
 
-  .hero-price-label {
-    top: 332px;
-    left: 16px;
+  .mobile-product-intro {
+    display: block;
+    padding: 48px 16px 56px;
+    background: #fff;
+  }
+
+  .mobile-product-intro p {
+    margin: 0 0 8px;
+    color: var(--coral);
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+  }
+
+  .mobile-product-intro h2 {
     margin: 0;
+    font-size: 28px;
+    line-height: 1.35;
+  }
+
+  .mobile-product-intro img {
+    display: block;
+    width: 100%;
+    margin: 26px 0 18px;
+  }
+
+  .mobile-product-intro strong {
+    display: inline-block;
     padding: 8px 11px;
     background: var(--coral);
     color: #fff;
-    font-size: 14px;
-    font-weight: 900;
-  }
-
-  .mobile-lifestyle-hero img {
-    right: -5%;
-    bottom: -2%;
-    width: 110%;
-    mix-blend-mode: multiply;
+    font-size: 15px;
   }
 
   .hero h1 {
