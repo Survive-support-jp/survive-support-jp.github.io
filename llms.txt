@@ -4,6 +4,7 @@
 
 ## サービス
 
+- 防災備蓄サポート: https://survive-support-jp.github.io/bousai/
 - 親と実家のスポット訪問: https://survive-support-jp.github.io/oyasupport/
 - AIを生活に: https://survive-support-jp.github.io/ai-living/
 
@@ -17,5 +18,6 @@
 
 ## 実用ガイド
 
+- 暮らしの実用ガイド: https://survive-support-jp.github.io/guides/
 - 高齢者のAI・スマホ設定を頼む前に、家族が確認したい5つのこと: https://survive-support-jp.github.io/guides/ai-smartphone-preparation.html
 - 怪しいSMSや電話が来た時の、家族のための確認チェックリスト: https://survive-support-jp.github.io/guides/suspicious-sms-phone-checklist.html
