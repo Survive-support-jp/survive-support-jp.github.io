@@ -894,6 +894,41 @@ h3 {
   font-size: 14px;
 }
 
+.guide-share {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  max-width: 720px;
+  margin: -24px 0 34px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--mint);
+  color: var(--green);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.guide-share button {
+  min-height: 36px;
+  padding: 7px 12px;
+  border: 1px solid var(--green);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.guide-share p {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 400;
+}
+
 .guide-index {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
