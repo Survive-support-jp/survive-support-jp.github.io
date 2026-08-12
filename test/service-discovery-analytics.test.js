@@ -11,6 +11,8 @@ const pages = [
   ['index.html', 'app.js', ['bousai', 'oyasupport', 'ai-living', 'guides']],
   ['guides/index.html', '../app.js', ['bousai', 'oyasupport', 'ai-living']],
   ['bousai/index.html', '../app.js', ['oyasupport', 'ai-living', 'guides']],
+  ['oyasupport/index.html', '../app.js', ['bousai', 'ai-living']],
+  ['ai-living/index.html', '../app.js', ['oyasupport', 'bousai']],
 ];
 
 for (const [path, scriptPath, targets] of pages) {
