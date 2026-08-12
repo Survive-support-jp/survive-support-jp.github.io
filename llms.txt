@@ -21,3 +21,4 @@
 - 暮らしの実用ガイド: https://survive-support-jp.github.io/guides/
 - 高齢者のAI・スマホ設定を頼む前に、家族が確認したい5つのこと: https://survive-support-jp.github.io/guides/ai-smartphone-preparation.html
 - 怪しいSMSや電話が来た時の、家族のための確認チェックリスト: https://survive-support-jp.github.io/guides/suspicious-sms-phone-checklist.html
+- 遠方の親の家が心配なとき、家族が訪問前に決めておく5つのこと: https://survive-support-jp.github.io/guides/parent-home-visit-checklist.html
