@@ -23,3 +23,4 @@
 - 怪しいSMSや電話が来た時の、家族のための確認チェックリスト: https://survive-support-jp.github.io/guides/suspicious-sms-phone-checklist.html
 - 遠方の親の家が心配なとき、家族が訪問前に決めておく5つのこと: https://survive-support-jp.github.io/guides/parent-home-visit-checklist.html
 - 停電時に困らないためのスマホと家庭の備え: https://survive-support-jp.github.io/guides/power-outage-smartphone-preparation.html
+- 台風・大雨のあと、離れて暮らす親の家で確認したい5つのこと: https://survive-support-jp.github.io/guides/storm-home-checklist.html
