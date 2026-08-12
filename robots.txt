@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://survive-support-jp.github.io/sitemap.txt
+Sitemap: https://survive-support-jp.github.io/sitemap.xml
 
 # llms.txt is an informational index for AI systems. It is not a crawler permission rule.
