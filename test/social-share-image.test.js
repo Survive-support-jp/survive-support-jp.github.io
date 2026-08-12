@@ -14,7 +14,7 @@ assert.ok(fs.statSync('assets/survive-lifestyle-og.png').size > 100_000);
 for (const [path, expectedImage] of pages) {
   const source = fs.readFileSync(path, 'utf8');
   assert.match(source, new RegExp(`property="og:image" content="${expectedImage}"`));
-  assert.match(source, /name="twitter:card" content="summary_large_image"/);
+  assert.deepEqual(source.match(/name="twitter:card" content="[^"]+"/g), ['name="twitter:card" content="summary_large_image"']);
 }
 
 console.log('Every service and guide has a share-ready social image');
