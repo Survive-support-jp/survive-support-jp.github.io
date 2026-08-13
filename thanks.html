@@ -11,7 +11,7 @@
   <link rel="icon" href="assets/favicon.png">
   <link rel="stylesheet" href="styles.css">
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-E0T5QCFTJZ"></script>
-  <script nonce="analytics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-E0T5QCFTJZ');if(new URLSearchParams(location.search).get('service')==='free_check'){gtag('event','generate_lead',{service:'bousai_free_check'});}</script>
+  <script nonce="analytics">window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-E0T5QCFTJZ');const service=new URLSearchParams(location.search).get('service');const leadServices={free_check:'bousai_free_check',parent_support:'parent_support',ai_living:'ai_living'};if(leadServices[service]){gtag('event','generate_lead',{service:leadServices[service]});}</script>
 </head>
 <body>
   <main class="contact-section">

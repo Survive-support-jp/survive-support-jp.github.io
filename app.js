@@ -73,6 +73,9 @@ document.querySelectorAll('.guide-copy').forEach((guide) => {
 // フォームはFormSubmitへ直接POSTする。JSは二重送信の防止だけを担当する。
 document.querySelectorAll('form.contact-form').forEach((form) => {
   form.addEventListener('submit', () => {
+    if (typeof gtag === 'function' && form.dataset.leadService) {
+      gtag('event', 'contact_submit', { lead_service: form.dataset.leadService });
+    }
     const button = form.querySelector('button[type="submit"]');
     if (!button) return;
     button.disabled = true;
