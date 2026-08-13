@@ -56,6 +56,9 @@
 .related-services { display: flex; flex-wrap: wrap; gap: 16px; margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.2); }
 .related-services a { color: #fff; font-size: 13px; font-weight: 700; text-decoration: none; }
 .related-services a:hover { text-decoration: underline; }
+.service-share { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 18px; }
+.service-share button { padding: 8px 12px; border: 1px solid rgba(255,255,255,.7); background: transparent; color: #fff; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
+.service-share p { margin: 0; color: rgba(255,255,255,.8); font-size: 12px; }
 @media (max-width: 760px) {
   .editorial-wrap { width: min(100% - 40px, 560px); }
   .editorial-pack { padding: 62px 0 54px; }

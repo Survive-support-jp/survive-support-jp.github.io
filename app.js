@@ -70,6 +70,54 @@ document.querySelectorAll('.guide-copy').forEach((guide) => {
   });
 });
 
+// サービスページも家族へ送りやすくし、どのサービスが共有されるかをGA4で確認する。
+document.querySelectorAll('[data-service-share]').forEach((share) => {
+  const button = share.querySelector('button');
+  const status = share.querySelector('p');
+  if (!button || !status) return;
+
+  const copyUrl = async () => {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(window.location.href);
+      return;
+    }
+    const input = document.createElement('textarea');
+    input.value = window.location.href;
+    input.setAttribute('readonly', '');
+    input.style.position = 'fixed';
+    input.style.opacity = '0';
+    document.body.append(input);
+    input.select();
+    document.execCommand('copy');
+    input.remove();
+  };
+
+  const trackServiceShare = (method) => {
+    if (typeof gtag !== 'function') return;
+    gtag('event', 'service_share', { share_method: method, service: share.dataset.serviceShare });
+  };
+
+  button.addEventListener('click', async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: document.title, url: window.location.href });
+        trackServiceShare('native');
+        status.textContent = '共有しました。';
+        return;
+      } catch (error) {
+        if (error && error.name === 'AbortError') return;
+      }
+    }
+    try {
+      await copyUrl();
+      trackServiceShare('copy');
+      status.textContent = 'リンクをコピーしました。LINEなどに貼り付けて共有できます。';
+    } catch {
+      status.textContent = 'リンクをコピーできませんでした。アドレスバーのURLを共有してください。';
+    }
+  });
+});
+
 // フォームはFormSubmitへ直接POSTする。JSは二重送信の防止だけを担当する。
 document.querySelectorAll('form.contact-form').forEach((form) => {
   form.addEventListener('submit', () => {
