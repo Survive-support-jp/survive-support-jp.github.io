@@ -5,6 +5,8 @@ const sitemap = fs.readFileSync('sitemap.xml', 'utf8');
 const llms = fs.readFileSync('llms.txt', 'utf8');
 
 assert.match(sitemap, /<loc>https:\/\/survive-support-jp\.github\.io\/guides\/<\/loc><lastmod>2026-08-12<\/lastmod>/);
+assert.match(sitemap, /<loc>https:\/\/survive-support-jp\.github\.io\/bousai\/<\/loc><lastmod>2026-08-13<\/lastmod>/);
+assert.match(sitemap, /<loc>https:\/\/survive-support-jp\.github\.io\/bousai\/diagnosis\/<\/loc><lastmod>2026-08-13<\/lastmod>/);
 assert.match(llms, /防災備蓄サポート: https:\/\/survive-support-jp\.github\.io\/bousai\//);
 assert.match(llms, /暮らしの実用ガイド: https:\/\/survive-support-jp\.github\.io\/guides\//);
 
