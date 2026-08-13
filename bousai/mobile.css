@@ -78,7 +78,7 @@
   .mobile-hero-scene::before,
   .mobile-hero-scene::after {
     position: absolute;
-    background: url("assets/mobile-home-entryway.png") center / cover no-repeat;
+    background: image-set(url("assets/mobile-home-entryway.webp") type("image/webp"), url("assets/mobile-home-entryway.png") type("image/png")) center / cover no-repeat;
     content: "";
   }
 

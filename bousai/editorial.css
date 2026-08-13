@@ -17,7 +17,7 @@
 .editorial-contents-list h3, .editorial-flow-list h3 { margin: 0; color: var(--ink); font-size: 20px; }
 .editorial-contents-list p, .editorial-flow-list p { margin: 8px 0 0; color: #51625c; font-size: 14px; line-height: 1.7; }
 .editorial-service { background: #e7e8e2; }
-.editorial-service-scene { min-height: 640px; background: url("assets/mobile-home-entryway.png") center/cover no-repeat; }
+.editorial-service-scene { min-height: 640px; background: image-set(url("assets/mobile-home-entryway.webp") type("image/webp"), url("assets/mobile-home-entryway.png") type("image/png")) center/cover no-repeat; }
 .editorial-service-copy { padding-top: 100px; }
 .editorial-service-copy h2 { color: var(--ink); font-size: clamp(32px, 4vw, 56px); line-height: 1.18; letter-spacing: -.06em; }
 .editorial-service-copy > p:not(.editorial-kicker) { max-width: 430px; margin: 21px 0 0; color: #314b42; font-size: 16px; font-weight: 700; line-height: 1.8; }
