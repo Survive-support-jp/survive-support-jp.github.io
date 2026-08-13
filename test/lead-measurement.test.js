@@ -15,6 +15,8 @@ assert.match(app, /lead_service/);
 assert.match(thanks, /generate_lead/);
 assert.match(thanks, /parent_support/);
 assert.match(thanks, /ai_living/);
+assert.match(diagnosis, /contact_submit/);
+assert.equal((diagnosis.match(/generate_lead/g) || []).length, 0, 'The diagnosis form must leave completed-lead tracking to the thank-you page');
 
 for (const [page, service, completionService = service] of forms) {
   const source = fs.readFileSync(page, 'utf8');

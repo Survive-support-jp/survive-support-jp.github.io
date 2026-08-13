@@ -22,6 +22,7 @@
       submitButton.disabled = true;
       submitButton.textContent = '送信しています…';
       help.textContent = '送信中です。画面を閉じずにお待ちください。';
+      if (typeof gtag === 'function') gtag('event', 'contact_submit', { lead_service: 'bousai_free_check' });
       if (window.SURVIVE_RECEPTION_ENDPOINT) {
         submitToReception_(appointmentForm, submitButton, help);
         return;
@@ -33,7 +34,6 @@
           headers: { Accept: 'application/json' }
         });
         if (!response.ok) throw new Error('Form submission failed');
-        if (typeof gtag === 'function') gtag('event', 'generate_lead', { service: 'bousai_free_check' });
         location.href = '/thanks.html?service=free_check';
       } catch (error) {
         submitButton.disabled = false;
