@@ -80,7 +80,7 @@
     document.querySelector('#gap-grid').innerHTML = Object.entries(needs).map(([key, need]) => `<article class="gap-card ${gaps[key] ? 'has-gap' : 'is-ready'}"><h3>${labels[key][0]}</h3><dl><div><dt>3日分の目安</dt><dd>${amount(need, labels[key][1])}</dd></div><div><dt>今ある量の目安</dt><dd>${amount(Math.min(need, available[key]), labels[key][1])}</dd></div></dl><p>${gaps[key] ? `あと <strong>${amount(gaps[key], labels[key][1])}</strong> を目安に整えると安心です。` : '3日分の目安を満たしています。期限も確認しましょう。'}</p></article>`).join('');
     const managementMessages = { ready: '置き場所と期限を確認できているのは、とても大切な備えです。食べた分・使った分を補充するタイミングだけ、続けて決めておきましょう。', partial: '備蓄があっても、場所や期限が分からないと、いざという時に使いにくくなります。水は低い場所へ、食品は期限の一覧と一緒に置くのがおすすめです。', none: '置き場所と期限まで決めると、買ったまま忘れてしまう心配が減ります。サバイブでは、置き場所づくりと期限一覧も一緒に整えます。' };
     document.querySelector('#management-note').innerHTML = `<strong>置き場所・期限について</strong><p>${managementMessages[management]}</p>`;
-    const price = people === 1 ? 24800 : 4000 + people * 20800;
+    const price = 6200 + people * 13600;
     const items = []; if (gaps.water) items.push(`備蓄水を、あと${gaps.water}L目安`); if (gaps.food) items.push(`すぐ食べられる食料を、あと${gaps.food}食分の目安`); if (gaps.toilet) items.push(`非常用トイレを、あと${gaps.toilet}回分の目安`); if (management !== 'ready') items.push('無理なく続けられる置き場所と期限管理'); if (document.querySelector('#support-needs').checked) items.push('ご家族の事情に合わせた食品・衛生用品の確認');
     document.querySelector('#plan-copy').textContent = `${people}人分を最初から3日間サバイブパックで整える場合は、${price.toLocaleString('ja-JP')}円（税込目安）からです。備蓄品一式・訪問設置・最長5年間の期限管理を含みます。今ある備えは活かすため、実際には必要な分だけを確認して見積します。`;
     document.querySelector('#plan-list').innerHTML = items.map(item => `<li>${item}</li>`).join('');
