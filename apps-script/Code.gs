@@ -23,22 +23,25 @@ function doPost(e) {
     diagnosis: clean_(data['無料チェック結果']),
     source: clean_(data['流入元'])
   };
-  if (!lead.name || !lead.area || !lead.email || !lead.preferredTime) return response_('invalid');
-
+  if (!lead.name || !lead.area || (!lead.email && !lead.phone)) return response_('invalid');
+  if (lead.email && !isEmail_(lead.email)) return response_('invalid');
+  if (lead.phone && !isPhone_(lead.phone)) return response_('invalid');
   const lock = LockService.getScriptLock();
   lock.waitLock(10000);
   try {
+    if (!claimSubmissionSlot_()) return response_('too_many_requests');
     const sheet = getSheet_();
     sheet.appendRow([
-      new Date(), '新規', lead.name, lead.area, lead.email, lead.phone,
-      lead.preferredTime, lead.details, lead.diagnosis, lead.source
+      new Date(), '新規', sheetValue_(lead.name), sheetValue_(lead.area), sheetValue_(lead.email), sheetValue_(lead.phone),
+      sheetValue_(lead.preferredTime), sheetValue_(lead.details), sheetValue_(lead.diagnosis), sheetValue_(lead.source)
     ]);
-    MailApp.sendEmail({
+    const message = {
       to: NOTIFY_EMAIL,
       subject: `【要対応】防災備蓄・無料チェック申込：${lead.name}様（${lead.area}）`,
-      body: mailBody_(lead),
-      replyTo: lead.email
-    });
+      body: mailBody_(lead)
+    };
+    if (lead.email) message.replyTo = lead.email;
+    MailApp.sendEmail(message);
   } finally {
     lock.releaseLock();
   }
@@ -58,6 +61,28 @@ function getSheet_() {
 
 function clean_(value) {
   return String(value || '').trim().slice(0, 2000);
+}
+
+function sheetValue_(value) {
+  const text = clean_(value);
+  return /^[=+\-@]/.test(text) ? `'${text}` : text;
+}
+
+function isEmail_(value) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+function isPhone_(value) {
+  return /^[0-9+()\-\s]{6,32}$/.test(value);
+}
+
+function claimSubmissionSlot_() {
+  const cache = CacheService.getScriptCache();
+  const key = `lead-slot-${Math.floor(Date.now() / 60000)}`;
+  const count = Number(cache.get(key) || '0');
+  if (count >= 20) return false;
+  cache.put(key, String(count + 1), 120);
+  return true;
 }
 
 function mailBody_(lead) {
