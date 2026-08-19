@@ -13,10 +13,29 @@
     .join(' / ') || '直接アクセス・未設定';
   document.querySelector('#traffic-source').value = campaignSummary;
   const appointmentForm = document.querySelector('#diagnosis-contact-form');
+  const phoneAction = document.querySelector('#phone-check-action');
+  const familyAction = document.querySelector('#family-form-action');
+  const phoneUnavailable = document.querySelector('#phone-check-unavailable');
+  const publicPhone = String(window.SURVIVE_PUBLIC_PHONE || '').replace(/[^0-9+]/g, '');
+  if (phoneAction && /^\\+?[0-9]{10,15}$/.test(publicPhone)) {
+    phoneAction.href = `tel:${publicPhone}`;
+    phoneAction.hidden = false;
+    phoneUnavailable.hidden = true;
+    phoneAction.addEventListener('click', () => { if (typeof gtag === 'function') gtag('event', 'free_check_phone_tap', { lead_service: 'bousai_free_check' }); });
+  }
+  if (familyAction) familyAction.addEventListener('click', () => { if (typeof gtag === 'function') gtag('event', 'free_check_family_form_tap', { lead_service: 'bousai_free_check' }); });
   if (appointmentForm) {
     appointmentForm.querySelector('input[name="_next"]').value = 'https://survive-support-jp.github.io/thanks.html?service=free_check';
     appointmentForm.addEventListener('submit', async (event) => {
       event.preventDefault();
+      const contactMethodError = document.querySelector('#contact-method-error');
+      const phone = appointmentForm.elements.phone.value.trim();
+      const email = appointmentForm.elements.email.value.trim();
+      contactMethodError.textContent = '';
+      if (!phone && !email) {
+        contactMethodError.textContent = '電話番号またはメールアドレスを入力してください。';
+        return;
+      }
       const submitButton = appointmentForm.querySelector('button[type="submit"]');
       const help = appointmentForm.querySelector('.form-help');
       submitButton.disabled = true;
