@@ -140,11 +140,11 @@
   }
 
   .mobile-lifestyle-hero h1 {
-    top: 288px;
+    top: 266px;
     left: 34px;
     margin: 0;
     color: var(--ink);
-    font-size: clamp(36px, 11vw, 45px);
+    font-size: clamp(29px, 8.4vw, 34px);
     font-weight: 800;
     letter-spacing: -0.07em;
     line-height: 1.25;
@@ -157,7 +157,8 @@
   }
 
   .mobile-hero-cta {
-    top: 500px;
+    top: auto;
+    bottom: 42px;
     right: -30px;
     left: 32px;
     display: grid;

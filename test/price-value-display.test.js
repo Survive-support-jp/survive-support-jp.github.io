@@ -3,6 +3,7 @@ const fs = require('node:fs');
 
 const source = fs.readFileSync('bousai/index.html', 'utf8');
 const mobileCss = fs.readFileSync('bousai/mobile.css', 'utf8');
+const editorialCss = fs.readFileSync('bousai/editorial.css', 'utf8');
 const diagnosisSource = fs.readFileSync('bousai/diagnosis/diagnosis.js', 'utf8');
 
 assert.match(source, /3日間パック/);
@@ -35,5 +36,12 @@ assert.match(source, /mobile-sticky-cta/);
 assert.doesNotMatch(source, /35,000円/);
 assert.doesNotMatch(source, /甘味 3本/);
 assert.doesNotMatch(source, /乾電池/);
+
+assert.match(source, /災害時、いざという時。/);
+assert.match(source, /ご自宅の備えは、十分に整っていますか？/);
+assert.match(source, /1日約11円/);
+assert.match(source, /19,800円 ÷ 1,825日 = 約11円/);
+assert.match(source, /href="\.\/diagnosis\/"/);
+assert.match(editorialCss, /readiness-value/);
 
 console.log('Price presentation communicates service value and term');
