@@ -7,6 +7,13 @@ const localPage = fs.readFileSync('bousai/hanno/index.html', 'utf8');
 assert.match(guide, /飯能市の防災備蓄リスト/);
 assert.match(guide, /飯能市地域防災計画/);
 assert.match(guide, /data-service-link="bousai"/);
+assert.match(guide, /a0401\/bousaitaisaku\/3day-bitiku\.html/);
+assert.match(guide, /a0401\/05b00-2001\.html/);
+assert.match(guide, /1人1日3リットル/);
+assert.match(guide, /1人1日約5回/);
 assert.match(localPage, /飯能市の防災備蓄・無料チェック/);
+assert.match(localPage, /申込み → 訪問・確認 → 必要な場合だけ後日見積/);
+assert.match(localPage, /災害リスク・避難情報は飯能市の公式情報で確認/);
+assert.match(localPage, /緊急対応は行いません/);
 
 console.log('Hanno guide and consultation LP have distinct search roles');
