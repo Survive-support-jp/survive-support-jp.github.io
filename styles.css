@@ -894,6 +894,12 @@ h3 {
   font-size: 14px;
 }
 
+.guide-visual { margin: 28px 0 12px; }
+.guide-visual img { display: block; width: 100%; border-radius: 12px; }
+.guide-visual figcaption { margin-top: 9px; color: var(--text); font-size: 13px; }
+.source-card { max-width: 720px; margin: 22px 0; padding: 18px 20px; border-left: 4px solid var(--green); background: var(--mint); }
+.source-card p { margin: 7px 0; }
+
 .guide-share {
   display: flex;
   flex-wrap: wrap;
