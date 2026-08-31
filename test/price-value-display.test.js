@@ -29,6 +29,7 @@ assert.match(source, /onishi-white-rice\.jpg/);
 assert.match(source, /imuraya-eiyokan\.jpg/);
 assert.match(source, /bos-emergency-toilet\.jpg/);
 assert.match(source, /class="pack-product-photos"/);
+assert.match(source, /三日間パックのセット内容/);
 assert.match(source, /class="hero"/);
 assert.match(lpCss, /\.mobile-sticky-cta/);
 assert.match(lpCss, /\.needs-grid\{grid-template-columns:1fr\}/);
