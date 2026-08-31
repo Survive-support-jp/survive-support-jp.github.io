@@ -4,6 +4,7 @@ const fs = require('node:fs');
 const guide = fs.readFileSync('guides/hanno-home-disaster-preparedness.html', 'utf8');
 const localPage = fs.readFileSync('bousai/hanno/index.html', 'utf8');
 const seniorGuide = fs.readFileSync('guides/hanno-senior-disaster-stockpile.html', 'utf8');
+const guideIndex = fs.readFileSync('guides/index.html', 'utf8');
 
 assert.match(guide, /飯能市の防災備蓄リスト/);
 assert.match(guide, /飯能市地域防災計画/);
@@ -21,5 +22,8 @@ assert.match(localPage, /緊急対応は行いません/);
 assert.match(seniorGuide, /高齢者等避難/);
 assert.match(seniorGuide, /data-link-location="hanno-senior-stockpile-guide"/);
 assert.match(seniorGuide, /飯能市の防災備蓄リスト/);
+assert.match(seniorGuide, /kurashi_seikatsukankyo\/bosai_saigaiengo_kikikanri\/5\/5461\.html/);
+assert.doesNotMatch(seniorGuide, /soshikikarasagasu\/somubu\/bosaikikikanri\/bosai\/2099\.html/);
+assert.match(guideIndex, /"position":10,"url":"https:\/\/survive-support-jp\.github\.io\/guides\/hanno-senior-disaster-stockpile\.html"/);
 
 console.log('Hanno guide and consultation LP have distinct search roles');
