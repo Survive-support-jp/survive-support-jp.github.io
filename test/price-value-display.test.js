@@ -20,6 +20,7 @@ assert.match(source, /無料で備えを診断する/);
 assert.match(source, /500mL × 18本/);
 assert.match(source, /class="hero"/);
 assert.match(lpCss, /\.mobile-sticky-cta/);
+assert.match(lpCss, /\.needs-grid\{grid-template-columns:1fr\}/);
 assert.ok(fs.statSync('bousai/assets/3day-pack-product-photo.webp').size < fs.statSync('bousai/assets/3day-pack-product-photo.png').size);
 assert.ok(fs.statSync('bousai/assets/mobile-home-entryway.webp').size < fs.statSync('bousai/assets/mobile-home-entryway.png').size);
 assert.match(source, /pack-overview/);
